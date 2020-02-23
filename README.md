@@ -1,7 +1,0 @@
-# AperturePhotometry
-
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://algebrato.github.io/AperturePhotometry.jl/stable)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://algebrato.github.io/AperturePhotometry.jl/dev)
-[![Build Status](https://travis-ci.com/algebrato/AperturePhotometry.jl.svg?branch=master)](https://travis-ci.com/algebrato/AperturePhotometry.jl)
-[![Codecov](https://codecov.io/gh/algebrato/AperturePhotometry.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/algebrato/AperturePhotometry.jl)
-[![Coveralls](https://coveralls.io/repos/github/algebrato/AperturePhotometry.jl/badge.svg?branch=master)](https://coveralls.io/github/algebrato/AperturePhotometry.jl?branch=master)
