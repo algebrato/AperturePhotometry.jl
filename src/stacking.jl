@@ -1,0 +1,69 @@
+using FFTW
+export stack_images, align_images
+
+
+function align_images(ref::Array, obj::Array, size::Tuple)
+    ref_fft = fftshift(fft(ref))
+    obj_fft = fftshift(fft(obj))
+    cx_ft = ref_fft .* conj.(obj_fft)
+    cx = abs.(fftshift(ifft(cx_ft)))
+
+    cx_c = Tuple.(indexin(maximum(cx), cx))
+    im_c = Int.(round.(size./2))
+
+    shift = im_c .- cx_c
+
+    obj_shifted = zeros(size[1], size[2])
+
+    if (shift[1] > 0) & (shift[2] > 0)
+        println("shift-1 ... ")
+        dx = shift[1]
+        dy = shift[2]
+
+        obj_shifted[1:end-dx, 1:end-dy] .= obj[dx+1:end, dy+1:end]
+        obj_shifted[end-dx:end, end-dy:end] .= 0.0
+
+    end
+
+    if (shift[1] < 0) & (shift[2] < 0)
+        println("shift-2 ... ")
+        dx = abs(shift[1])
+        dy = abs(shift[2])
+
+        obj_shifted[dx+1:end, dy+1:end] = obj[1:end-dx, 1:end-dy]
+        obj_shifted[1:dx, 1:dy] .= 0.0
+
+    end
+
+    if (shift[1] > 0) & (shift[2] < 0)
+        println("shift-3 ... ")
+        dx = abs(shift[1])
+        dy = abs(shift[2])
+
+        obj_shifted[1:end-dx, dy+1:end] = obj[dx+1:end, 1:end-dy]
+        obj_shifted[end-dx:end, 1:dy] .= 0.0
+    end
+
+    if (shift[1] < 0) & (shift[2] > 0)
+        println("shift-2 ... ")
+        dx = abs(shift[1])
+        dy = abs(shift[2])
+
+        obj_shifted[dx+1:end, 1:end-dy] = obj[1:end-dx, dy+1:end]
+        obj_shifted[1:dx, end-dy:end] .= 0.0
+    end
+
+    return obj_shifted
+end
+
+function stack_images(img_aligned::Array)
+    k = 0
+    sum_img = zeros(size(img_aligned[1])[1], size(img_aligned[1])[2])
+    for i in img_aligned[1:end]
+            global sum_img = sum_img .+ i
+            global k = k + 1
+    end
+
+    return sum_img ./ k
+
+end
