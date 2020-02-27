@@ -1,5 +1,6 @@
 using FFTW
 export stack_images, align_images, align_channel!, align_images_crop
+export align_channel_crop!
 
 function align_images(ref::Array, obj::Array, size::Tuple)
     ref_fft = fftshift(fft(ref))
@@ -64,6 +65,15 @@ function align_channel!(channel::Array{Array{UInt16,2},1})
             channel[i] = obj_aligned
     end
 
+end
+
+function align_channel_crop!(channel::Array{Array{UInt16,2},1}, x::Tuple, y::Tuple)
+
+    ref = channel[1]
+    for i in 2:length(channel)
+        obj_aligned = align_images_crop(ref, channel[i], size(ref), x, y)
+        channel[i] = obj_aligned
+    end
 end
 
 function align_images_crop(ref::Array, obj::Array, size::Tuple, x::Tuple, y::Tuple)

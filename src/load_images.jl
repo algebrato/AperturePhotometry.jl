@@ -11,7 +11,7 @@ function load_images(path::String)
     for i in file_list
         fit = FITS(path*i)
         img = read(fit[1])
-        time = read_header(fit[1])["DATE-OBS"]
+        time = read_header(fit[1])["JD"]
 
         img_stack = append!(img_stack, [img])
         times = append!(times, time)
