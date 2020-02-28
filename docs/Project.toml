@@ -1,2 +1,3 @@
 [deps]
+AperturePhotometry = "4e5e7b83-0621-4b10-af5f-e473e3044d1d"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
