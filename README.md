@@ -4,26 +4,26 @@
 ------------------- |
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://algebrato.github.io/AperturePhotometry.jl/stable)|
 
-This julia module wants to met the needs of a typical amatorial astronomer, that is involved in the differential photometry  of objects like variable stars, asteroids, photometri surface of galaxies and so on.
+This Julia module wants to meet the needs of amatorial astronomerw that are involved in the photometry of objects like variable stars, asteroids, surface-photometry of galaxies, and so on.
 
-On the web there is a lot of software that perfom images calibration and relatively differential photmetry, but more often than not, they are:
+On the web, there is a lot of software that perform images calibration and relatively differential photometry, but more often than not, they are:
 
 - Close-source software
 - They work only on windows
-- You have to use the sotware "as is", and you cannot hack any part of it.
+- You have to use the software "as is" and you cannot hack any part of it.
 
-With a `Julia` module, all the users are really invited to hack it! Add your fun feature with a PR! 
+With a `Julia` module, all the users are invited to hack it! Add your fun feature with a PR! 
 
-Now, the module is very simple. He can calibrate with dark-frame and flat-field a images series and he can stack them to do imaging, or they can be aligned in order to perform differential photmetry of an object given two fixed reference stars.
+Now, the module is elementary, and it can calibrate an image series with dark-frame and flat-field. It can also stack the images to do imaging, or they can be aligned in order to perform differential photometry of an object given two fixed reference stars.
 
-The module was thought to be used for differend colors channel. If you have a CCD with a wheel-filter,  you can get two (or more) differential light curve in different colors. In this way you can load all the channel, calibrate them separately and perform the color B-V or B-I or V-R light curve.
+The module was thought to be used for different colors channel. If you have a CCD with a wheel-filter,  you can get two (or more) differential light curves in different colors. In this way, you can load all the channels, calibrate them separately and perform the color B-V or B-I or V-R light curve.
 
-All with few line of julia code.
+All of this can be done with a few lines of Julia.
 
-Now, I'm working to port the code also on other platform like Windows and MacOS. Well, meanwhile, if you have Linux, you can start to enjoy your fun!
+Now, I'm working on porting the code also on other platforms like Windows and macOS. Well, meanwhile, if you have Linux, you can start to enjoy your fun!
 
 # Built status
-Now, `AperturePhotomery` is available for Linux and `Julia => 1.0`. The build status is presented here below
+Now, `AperturePhotomery` is available for Linux and `Julia => 1.0`. The built status is presented here below
 
 **`Platform`**| **`Built Status`**| **`Coverage`**|
 ------------------- |------------------- |------------------- |
