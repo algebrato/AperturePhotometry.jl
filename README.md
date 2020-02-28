@@ -25,5 +25,6 @@ Now, I'm working to port the code also on other platform like Windows and MacOS.
 # Built status
 Now, `AperturePhotomery` is available for Linux and `Julia => 1.0`. The build status is presented here below
 **`Platform`**| **`Build Status`**| **`Coverage`**|
+------------------- |------------------- |------------------- |
 **Linux Debian-Like**| [![Build Status](https://travis-ci.com/algebrato/AperturePhotometry.jl.svg?token=vxqEG2bCpZk4Jk4XmmFJ&branch=master)](https://travis-ci.com/algebrato/AperturePhotometry.jl)| 
 [![Codecov](https://codecov.io/gh/algebrato/AperturePhotometry.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/algebrato/AperturePhotometry.jl)|
