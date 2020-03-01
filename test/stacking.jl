@@ -29,7 +29,7 @@ ref1   = (247, 168)
 ref2   = (448, 108)
 
 # inner and outer radius for the aperture photometry
-radius = (10, 15)
+radius = (11, 15)
 
 flux_ob, flux_ref1, flux_ref2 = aperture_photometry(I_channel, obj, ref1, ref2, radius)
 
@@ -39,3 +39,5 @@ mag_ref2 = 25 .- 2.5 .* log10.(flux_ref2)
 
 plot(times, mag_ob .- mag_ref2, seriestype=:scatter, label="ob-r1", yflip=true)
 plot!(times, (mag_ref2 .- mag_ref1) .+ 1.05, seriestype=:scatter, label="r2-r1", yflip=true)
+
+plot_image(I_channel[100], (700,1200))
