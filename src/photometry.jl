@@ -1,5 +1,15 @@
 export aperture_photometry
 
+@doc raw"""
+    aperture_photometry(channel::Array,
+                                 obj::Tuple,
+                                 ref1::Tuple,
+                                 ref2::Tuple,
+                                 radius::Tuple
+                                )
+
+Aperture photometry of a given object
+"""
 function aperture_photometry(channel::Array,
                              obj::Tuple,
                              ref1::Tuple,

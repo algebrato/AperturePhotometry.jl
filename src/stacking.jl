@@ -2,6 +2,11 @@ using FFTW
 export stack_images, align_images, align_channel!, align_images_crop
 export align_channel_crop!
 
+@doc raw"""
+    align_images(ref::Array, obj::Array, size::Tuple)
+
+This function align two images, using the cross-correlation methods. It works for x-y translations but it fails if the images suffer of field-rotation.
+"""
 function align_images(ref::Array, obj::Array, size::Tuple)
     ref_fft = fftshift(fft(ref))
     obj_fft = fftshift(fft(obj))
@@ -16,7 +21,7 @@ function align_images(ref::Array, obj::Array, size::Tuple)
     obj_shifted = zeros(size[1], size[2])
 
     if (shift[1] > 0) & (shift[2] > 0)
-        println("shift-1 ... ")
+
         dx = shift[1]
         dy = shift[2]
 
@@ -26,7 +31,7 @@ function align_images(ref::Array, obj::Array, size::Tuple)
     end
 
     if (shift[1] < 0) & (shift[2] < 0)
-        println("shift-2 ... ")
+
         dx = abs(shift[1])
         dy = abs(shift[2])
 
@@ -36,7 +41,7 @@ function align_images(ref::Array, obj::Array, size::Tuple)
     end
 
     if (shift[1] > 0) & (shift[2] < 0)
-        println("shift-3 ... ")
+
         dx = abs(shift[1])
         dy = abs(shift[2])
 
@@ -45,7 +50,7 @@ function align_images(ref::Array, obj::Array, size::Tuple)
     end
 
     if (shift[1] < 0) & (shift[2] > 0)
-        println("shift-2 ... ")
+
         dx = abs(shift[1])
         dy = abs(shift[2])
 
@@ -135,6 +140,11 @@ function align_images_crop(ref::Array, obj::Array, size::Tuple, x::Tuple, y::Tup
 
 end
 
+@doc raw"""
+    stack_images(img_aligned::Array)
+
+Image staking
+"""
 function stack_images(img_aligned::Array)
     k = 0
     sum_img = zeros(size(img_aligned[1])[1], size(img_aligned[1])[2])

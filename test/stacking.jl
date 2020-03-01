@@ -9,6 +9,7 @@ path_df_I = "/home/algebrato/Immagini_Asteroidi/Binary_Star/20100102/dark_flat_I
 
 # Load Images
 I_channel, times = load_images(channel_path)
+
 # Dark Calibration
 dark_calibration(I_channel, path_dark)
 
@@ -18,7 +19,7 @@ flat_calibration(I_channel, path_df_I, path_flat_I)
 # Align the images
 align_channel!(I_channel)
 
-# YOu alse may align the images using a crop section
+# You may align the images using a crop section to increase the speed
 # align_channel_crop!(I_channel, (1, 350), (200, 700))
 
 # The variable star position
