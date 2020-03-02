@@ -4,7 +4,7 @@ DocTestSetup = quote
 end
 ```
 
-# Align function
+# Align functions
 
 ```@docs
 stack_images
